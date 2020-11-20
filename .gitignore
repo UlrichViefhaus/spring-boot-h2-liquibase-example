@@ -1,0 +1,4 @@
+/log/
+/.idea/
+/spring-boot-h2-liquibase-example.iml
+/target/

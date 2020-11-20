@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+  <changeSet id="sessions-integration-test" author="ulrich">
+    <preConditions onFail="CONTINUE"
+                   onFailMessage="ONLY for integration tests">
+      <not>
+        <dbms type="mssql"/>
+      </not>
+    </preConditions>
+    <comment>Create table tillhub_websocket_sessions</comment>
+    <createTable tableName="SESSIONS">
+      <column name="SESSION" type="varchar(200)">
+        <constraints nullable="false" primaryKey="true"></constraints>
+      </column>
+      <column name="SERVICE" type="varchar(200)">
+        <constraints nullable="false"></constraints>
+      </column>
+      <column name="SITE" type="varchar(200)">
+        <constraints nullable="false"></constraints>
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>
